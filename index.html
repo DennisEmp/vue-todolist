@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1d86bf17be.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h1>ToDoList</h1>
-        <input type="text" placeholder="Inserisci una task">
-        <button>Add</button>
+    <div id="app">
+        <div class="container">
+            <h1>ToDoList</h1>
+            <div class="input-container">
+                <input type="text" placeholder="Inserisci una task" v-model="newTask" @KeyUp.enter="addTask">
+                <button @click="addTask">Add</button>
+            </div>
+            
+        </div>
+        <!-- container tasks -->
+        <div class="tasks-container">
+            <ul class="task-cont" >
+                <li class="task" v-for="(task, index) in tasks">
+                    {{task.text}}
+                    <i class="fas fa-times" @click="removeTask(index)"></i>
+                </li>
+                
+            </ul>
+            <!-- <div class="errore">
+                <span id="error">
+                    minimo 5 caratteri per una nuova task
+                </span>
+            </div> -->
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

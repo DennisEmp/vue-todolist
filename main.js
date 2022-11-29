@@ -1,22 +1,38 @@
 const { createApp } = Vue
 
 createApp({
-    data() {
-      return {
+  data() {
+    return {
+        error: false,
+        newTask: '',
         tasks: [
-          {
-              text: 'Fare i compiti', 
-              done: false
-          },
-          {
-              text: 'Fare la spesa', 
-              done: true
-          },
-          {
-              text: 'Fare il', 
-              done: false
-          }
+            {
+                text: 'Fare i compiti', 
+                done: false
+            },
+            {
+                text: 'Fare la spesa', 
+                done: true
+            },
+            {
+                text: 'Fare il bucato', 
+                done: false
+            }
         ]
-      }
     }
-  }).mount('#app')
+  },
+  methods: {
+    addTask(){
+        if (this.newTask.length < 5 || this.newTask === ''){
+            error=true
+        } else {
+            this.tasks.push({ text: this.newTask }); 
+            error=false
+        }
+        this.newTask="";
+    },
+    removeTask(indexArgument){
+        this.tasks.splice(indexArgument, 1);
+    }
+  }
+}).mount('#app')

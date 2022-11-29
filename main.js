@@ -31,8 +31,8 @@ createApp({
         }
         this.newTask="";
     },
-    removeTask(indexArgument){
-        this.tasks.splice(indexArgument, 1);
+    removeTask(RemoveIndex){
+        this.tasks.splice(RemoveIndex, 1);
     }
   }
 }).mount('#app')

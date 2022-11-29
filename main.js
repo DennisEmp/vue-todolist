@@ -24,10 +24,10 @@ createApp({
   methods: {
     addTask(){
         if (this.newTask.length < 5 || this.newTask === ''){
-            error=true
+            this.error=true;
         } else {
             this.tasks.push({ text: this.newTask }); 
-            error=false
+            this.error=false;
         }
         this.newTask="";
     },

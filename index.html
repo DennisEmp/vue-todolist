@@ -26,13 +26,13 @@
                     {{task.text}}
                     <i class="fas fa-times" @click="removeTask(index)"></i>
                 </li>
-                
+                <div class="errore" v-if="error">
+                    <span id="error">
+                        minimo 5 caratteri per una nuova task
+                    </span>
+                </div>
             </ul>
-            <!-- <div class="errore">
-                <span id="error">
-                    minimo 5 caratteri per una nuova task
-                </span>
-            </div> -->
+            
         </div>
     </div>
     <script src="main.js"></script>

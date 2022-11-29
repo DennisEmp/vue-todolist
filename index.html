@@ -21,7 +21,7 @@
         </div>
         <!-- container tasks -->
         <div class="tasks-container">
-            <ul class="task-cont" >
+            <ul class="task-cont" v-if="tasks.length > 0" >
                 <li class="task" v-for="(task, index) in tasks">
                     {{task.text}}
                     <i class="fas fa-times" @click="removeTask(index)"></i>
@@ -32,6 +32,9 @@
                     </span>
                 </div>
             </ul>
+            <div class="NoTask" v-else>
+                <span>Non ci sono Task</span>
+            </div>
             
         </div>
     </div>
